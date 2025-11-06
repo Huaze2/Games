@@ -8,7 +8,7 @@
 
 ## How to use
 
-Use [OneCompiler](https://onecompiler.com/) to run this code. Click on **HTML**, at the top delete **styles.css** and **script.js**. Replace the entire code (in OneCompiler) to this *Unblocked Games* code. *You can use Visual Studio Code to run too.*
+Click the link: **https://onecompiler.com/html/443ufq5qf**
 
 ### ⚠️If you are using OneCompiler⚠️
 
@@ -31,5 +31,5 @@ All changes in Beta 1.6 and newer will be documented in this file.
 
 ## [Beta 1.6.1] - 6/11/2025
 
-## Added
+### Added
 - undo delete custom games
