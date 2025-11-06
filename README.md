@@ -28,3 +28,8 @@ All changes in Beta 1.6 and newer will be documented in this file.
 
 ### Changed
 - hovering and selected dropdown options are more visible
+
+## [Beta 1.6.1] - 6/11/2025
+
+## Added
+- undo delete custom games
