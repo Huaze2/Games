@@ -4,7 +4,7 @@
 
 **Made by Huaze**
 
-**Version: *Beta 1.6***
+**Version: *Beta 1.6.2***
 
 ## How to use
 
@@ -33,3 +33,9 @@ All changes in Beta 1.6 and newer will be documented in this file.
 
 ### Added
 - undo delete custom games
+
+## [Beta 1.6.2] - 6/11/2025
+
+### Added
+- undo delete all custom games (settings)
+- undo delete local storage (settings)
