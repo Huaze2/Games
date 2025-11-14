@@ -14,6 +14,10 @@ Click the link: **https://onecompiler.com/html/443ufq5qf**
 
 The export button does not work in OneCompiler. Clicking it will fallback and open a new tab with the JSON code (basically the export code). To make an export file, open the app ***Text*** and paste the JSON code from the fallback. Save the file with an extension '.json' (e.g. ***export.json***).
 
+## Bugs and Suggestions
+
+If you have any bugs, suggestions or something to say (related to this website), visit https://forms.gle/auL3bbDE5DU2CjNo9
+
 # Changelogs
 
 All changes in Beta 1.6 and newer will be documented in this file.
