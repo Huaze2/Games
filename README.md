@@ -16,7 +16,7 @@ The export button does not work in OneCompiler. Clicking it will fallback and op
 
 ## Bugs and Suggestions
 
-If you have any bugs, suggestions or something to say (related to this website), visit https://forms.gle/auL3bbDE5DU2CjNo9
+If there is any bugs or suggestions, go to https://forms.gle/auL3bbDE5DU2CjNo9
 
 # Changelogs
 
