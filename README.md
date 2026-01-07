@@ -12,7 +12,7 @@ Click the link: **https://onecompiler.com/html/443ufq5qf**
 
 ### ⚠️If you are using the link⚠️
 
-The export button does not work in OneCompiler. Clicking it will fallback and open a new tab with the JSON code (basically the export code). To make an export file, open the app ***Text*** and paste the JSON code from the fallback. Save the file with an extension '.json' (e.g. ***export.json***).
+The export button does not work in OneCompiler. Clicking it will fallback and open a new tab with the JSON code (basically the export code). To make an export file, open the app ***Text*** and paste the JSON code from the fallback. Save the file with an extension '.json' (e.g. ***export.json***). (***THIS GUIDE IS FOR PLDs***)
 
 ## Bugs and Suggestions
 
