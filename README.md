@@ -8,7 +8,7 @@
 
 ## How to use
 
-Click the link: **https://onecompiler.com/html/443ufq5qf**
+Click the link: **https://onecompiler.com/html/449w2kdhz**
 
 ### ⚠️If you are using the link⚠️
 
