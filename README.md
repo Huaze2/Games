@@ -6,9 +6,7 @@
 
 **Version: *Beta 1.6.2***
 
-## How to use
-
-Click the link: **https://onecompiler.com/html/449w2kdhz**
+Link: **https://onecompiler.com/html/449w2kdhz**
 
 ### ⚠️If you are using the link⚠️
 
