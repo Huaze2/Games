@@ -4,13 +4,13 @@
 
 **Made by Huaze**
 
-**Version: *Beta 1.6.3***
+**Version: *Beta 1.7***
 
 Link: **https://onecompiler.com/html/449w2kdhz**
 
 ### ⚠️If you are using the link⚠️
 
-The export button does not work in OneCompiler. Clicking it will fallback and open a new tab with the JSON code (basically the export code). To make an export file, open the app ***Text*** and paste the JSON code from the fallback. Save the file with an extension '.json' (e.g. ***export.json***). (***THIS GUIDE IS FOR PLDs***)
+The export button does not work in OneCompiler. Clicking it will fallback and open a new tab with the JSON code (basically the export code). To make an export file, open the app ***Text*** and paste the JSON code from the fallback. Save the file with an extension '.json' (e.g. ***export.json***). (***This guide is for PLDs***)
 
 ## Bugs and Suggestions
 
@@ -48,6 +48,14 @@ All changes in Beta 1.6 and newer will be documented in this file.
 - some text in settings, games page and add games page
 - placeholders in games page
 
-# Current bugs (help)
+## [Beta 1.7] - 8/2/2026
+
+### Added
+- renaming games
+- all games must have unique names (case-insensitive, trimmed)
+
+### Fixed
 - having more than one game with the same name (case-sensitive) will cause the 'last played' to be the same and deleting one of them clears last played for that game
+
+# Current bug (help)
 - game cards shrinks after expanding and collapsing
