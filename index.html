@@ -3,7 +3,7 @@
 <!--
 
   Created by Huaze
-  Version: Beta 1.6.2
+  Version: Beta 1.6.3
   For more info, see: https://github.com/Huaze2/Games
 
 -->
@@ -481,7 +481,6 @@
         <div class="setting-row">
           <div>
             <div class="font-medium">Highlight magenta border to custom games</div>
-            <div class="muted">Apply a magenta outline to custom entries</div>
           </div>
           <div>
             <button id="toggleHighlight" class="switch" role="switch" aria-checked="true" aria-label="Highlight custom games">
@@ -493,7 +492,6 @@
         <div class="setting-row">
           <div>
             <div class="font-medium">Show last played</div>
-            <div class="muted">Display when a game was last opened</div>
           </div>
           <div>
             <button id="toggleLastPlayed" class="switch" role="switch" aria-checked="true" aria-label="Show last played">
@@ -506,7 +504,6 @@
         <div class="setting-row">
           <div>
             <div class="font-medium">Show main menu</div>
-            <div class="muted">Toggle whether the main landing view is displayed</div>
           </div>
           <div>
             <button id="toggleMainMenu" class="switch" role="switch" aria-checked="true" aria-label="Show main menu">
@@ -518,7 +515,6 @@
         <div class="setting-row">
           <div>
             <div class="font-medium">Sort games</div>
-            <div class="muted">Choose listing order</div>
           </div>
           <div>
             <!-- custom dropdown control (replaces native select so we can animate the options) -->
@@ -536,7 +532,6 @@
         <div class="setting-row">
           <div>
             <div class="font-medium">Filter games</div>
-            <div class="muted">Filter which games are shown in the list</div>
           </div>
           <div>
             <div class="custom-select" id="showFilterSelect">
@@ -553,7 +548,6 @@
         <div class="setting-row">
           <div>
             <div class="font-medium">Delete all custom games</div>
-            <div class="muted">Removes all user-added games from storage</div>
           </div>
           <div>
             <button id="deleteAllCustom" class="btn-danger">Delete</button>
@@ -563,7 +557,7 @@
         <div class="setting-row">
           <div>
             <div class="font-medium">Delete all local storage</div>
-            <div class="muted">Clears all playground data (settings, custom games, last-played)</div>
+            <div class="muted">Clears all local data</div>
           </div>
           <div>
             <button id="deleteAllLocalStorage" class="btn-danger">Clear All</button>
@@ -574,7 +568,7 @@
         <div class="setting-row">
           <div>
             <div class="font-medium">Import / Export</div>
-            <div class="muted">Import settings & custom games from a JSON file or export current data.</div>
+            <div class="muted">Import / Export data from a JSON file</div>
           </div>
           <div class="flex gap-3 items-center">
             <!-- Slightly bigger / improved look for these buttons -->
@@ -633,14 +627,14 @@
       <div class="flex items-center justify-between mb-4">
         <div>
           <h2 class="text-lg font-semibold">Games</h2>
-          <p class="text-sm text-slate-400">Click a card title to expand the code, or press Open to run it.</p>
+          <p class="text-sm text-slate-400">This project is still in <i>beta</i>, no games are added yet, these are just placeholders.</p>
         </div>
         <button id="backBtn" class="px-3 py-2 rounded-md bg-slate-700/40 hover:bg-slate-600">Back</button>
       </div>
 
       <!-- Search + Add Button Row -->
       <div class="flex gap-2 mb-4 items-center">
-        <input id="searchInput" type="text" placeholder="Search games..." class="flex-1 bg-slate-700/40 placeholder:text-slate-400 text-slate-100 px-3 py-2 rounded-md focus:outline-none" />
+        <input id="searchInput" type="text" placeholder="Search games" class="flex-1 bg-slate-700/40 placeholder:text-slate-400 text-slate-100 px-3 py-2 rounded-md focus:outline-none" />
 
         <!-- Centered add button -->
         <button id="addGameBtn" class="add-btn" aria-label="Add new game">
@@ -649,8 +643,6 @@
       </div>
 
       <div id="gamesContainer" class="space-y-3"></div>
-
-      <div class="mt-6 text-sm text-slate-400">Add games in the <code class="bg-slate-700 px-1 rounded">games</code> array below. Custom games are saved in local storage.</div>
     </div>
 
     <!-- ADD GAME VIEW -->
@@ -661,8 +653,8 @@
       </div>
 
       <div class="space-y-3">
-        <input id="newGameTitle" type="text" placeholder="Game Title" class="w-full bg-slate-700/40 text-slate-100 placeholder:text-slate-400 px-3 py-2 rounded-md focus:outline-none" />
-        <textarea id="newGameCode" rows="8" placeholder="Game Code (HTML/JS)" class="w-full bg-slate-700/40 text-slate-100 placeholder:text-slate-400 px-3 py-2 mono focus:outline-none rounded-md"></textarea>
+        <input id="newGameTitle" type="text" placeholder="Title" class="w-full bg-slate-700/40 text-slate-100 placeholder:text-slate-400 px-3 py-2 rounded-md focus:outline-none" />
+        <textarea id="newGameCode" rows="8" placeholder="Code" class="w-full bg-slate-700/40 text-slate-100 placeholder:text-slate-400 px-3 py-2 mono focus:outline-none rounded-md"></textarea>
         <button id="confirmAddBtn" class="w-full px-4 py-2 rounded-md bg-emerald-600 hover:bg-emerald-700">Add</button>
       </div>
     </div>
@@ -788,13 +780,12 @@
 </head>
 <body style="font-family:system-ui,Segoe UI,Roboto,Arial;margin:32px;color:#111">
   <h1>Hello, world!</h1>
-  <p>This is a minimal HTML page.</p>
 </body>
 </html>`,
         built: true
       },
       {
-        name: 'Digital Clock',
+        name: 'Clock',
         code: `<div style="font-family:system-ui,Segoe UI,Roboto,Arial;text-align:center;margin:40px;color:#111">
   <h2>Digital Clock</h2>
   <div id="clock" style="font-size:32px;margin-top:12px"></div>
@@ -2151,3 +2142,11 @@
   </script>
 </body>
 </html>
+
+<!--
+
+  Created by Huaze
+  Version: Beta 1.6.3
+  For more info, see: https://github.com/Huaze2/Games
+
+-->
