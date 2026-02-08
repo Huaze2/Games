@@ -4,7 +4,7 @@
 
 **Made by Huaze**
 
-**Version: *Beta 1.6.2***
+**Version: *Beta 1.6.3***
 
 Link: **https://onecompiler.com/html/449w2kdhz**
 
@@ -41,6 +41,12 @@ All changes in Beta 1.6 and newer will be documented in this file.
 ### Added
 - undo delete all custom games (settings)
 - undo delete local storage (settings)
+
+## [Beta 1.6.3] - 8/2/2026
+
+### Changed
+- some text in settings, games page and add games page
+- placeholders in games page
 
 # Current bugs (help)
 - having more than one game with the same name (case-sensitive) will cause the 'last played' to be the same and deleting one of them clears last played for that game
