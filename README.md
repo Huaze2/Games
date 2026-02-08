@@ -1,6 +1,6 @@
 # Unblocked Games
 
-***(THIS PROJECT IS STILL IN BETA, NO GAMES ARE ADDED YET)***
+***(THIS PROJECT IS STILL IN BETA, NO GAMES ARE ADDED YET. TO GET UNRELEASED GAMES CODE, EITHER COPY/PASTE CODE OR IMPORT IT)***
 
 **Made by Huaze**
 
@@ -41,3 +41,7 @@ All changes in Beta 1.6 and newer will be documented in this file.
 ### Added
 - undo delete all custom games (settings)
 - undo delete local storage (settings)
+
+# Current bugs (help)
+- having more than one game with the same name (case-sensitive) will cause the 'last played' to be the same and deleting one of them clears last played for that game
+- game cards shrinks after expanding and collapsing
