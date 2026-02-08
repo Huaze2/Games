@@ -3,7 +3,7 @@
 <!--
 
   Created by Huaze
-  Version: Beta 1.6.3
+  Version: Beta 1.7
   For more info, see: https://github.com/Huaze2/Games
 
 -->
@@ -966,6 +966,14 @@
         showToast('Please enter both a title and game code.', { type: 'warn' });
         return;
       }
+      // validate uniqueness (case-insensitive trimmed) across all games
+      const norm = name.toLowerCase();
+      const exists = allGames().some(g => String(g.name || '').trim().toLowerCase() === norm);
+      if(exists){
+        showToast('A game with that name already exists.', { type: 'error' });
+        return;
+      }
+
       customGames.push({ name, code, built: false });
       saveCustomGames();
       showGames();
@@ -986,6 +994,19 @@
       if(h < 24) return `Last played: ${h}h ago`;
       const d = Math.floor(h / 24);
       return `Last played: ${d}d ago`;
+    }
+
+    // Helper: check whether a name is already taken (case-insensitively and trimmed)
+    // currentName (optional) will be ignored from the check (so you can rename to same name)
+    function isNameTaken(name, currentName) {
+      const norm = String(name || '').trim().toLowerCase();
+      if(!norm) return false;
+      const games = allGames();
+      return games.some(g => {
+        const gNameNorm = String(g.name || '').trim().toLowerCase();
+        if(currentName && String(currentName || '').trim().toLowerCase() === gNameNorm) return false;
+        return gNameNorm === norm;
+      });
     }
 
     // Update every second so relative times stay current
@@ -1183,6 +1204,21 @@
           };
 
           let currentEditBtn = createEditButton();
+          // Create Rename button (placed on same row)
+          const createRenameButton = () => {
+            const renameBtn = document.createElement('button');
+            renameBtn.className = 'px-3 py-1 rounded-md bg-slate-700/40 text-sm text-btn';
+            renameBtn.textContent = 'Rename';
+            renameBtn.title = 'Rename game';
+            renameBtn.addEventListener('click', (ev) => {
+              ev.stopPropagation();
+              startRenaming();
+            });
+            return renameBtn;
+          };
+          let currentRenameBtn = createRenameButton();
+
+          editControlsWrap.appendChild(currentRenameBtn);
           editControlsWrap.appendChild(currentEditBtn);
           contentWrap.appendChild(editControlsWrap);
 
@@ -1192,8 +1228,14 @@
           let cancelBtn = null;
           let submitBtn = null;
 
+          // Renaming state
+          let renaming = false;
+          let renameInput = null;
+          let renameCancelBtn = null;
+          let renameSubmitBtn = null;
+
           function startEditing(){
-            if(editing) return;
+            if(editing || renaming) return;
             editing = true;
             // stop card toggling while interacting with form elements by stopping propagation
             // replace pre with textarea
@@ -1281,7 +1323,138 @@
               editControlsWrap.appendChild(currentEditBtn);
             }
           }
-        }
+
+          // START Rename flow
+          function startRenaming(){
+            if(renaming || editing) return;
+            renaming = true;
+
+            // Hide/disable edit & rename buttons while renaming UI is visible
+            try { currentEditBtn.remove(); } catch(e){}
+            try { currentRenameBtn.remove(); } catch(e){}
+
+            // Replace the title element content with an input
+            const oldName = String(g.name || '');
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.className = 'editor-textarea';
+            input.style.minHeight = '36px';
+            input.style.padding = '8px';
+            input.value = oldName;
+            input.addEventListener('click', (ev) => ev.stopPropagation());
+            input.addEventListener('keydown', (ev) => {
+              ev.stopPropagation();
+              if(ev.key === 'Enter') {
+                ev.preventDefault();
+                submitRename();
+              } else if(ev.key === 'Escape') {
+                ev.preventDefault();
+                cancelRename();
+              }
+            });
+
+            // Clear the current title content and insert input
+            title.innerHTML = '';
+            title.appendChild(input);
+            input.focus();
+            input.select();
+
+            // create Cancel + Save buttons and append
+            renameCancelBtn = document.createElement('button');
+            renameCancelBtn.className = 'px-3 py-1 rounded-md bg-slate-700/40 text-sm';
+            renameCancelBtn.textContent = 'Cancel';
+            renameCancelBtn.addEventListener('click', (ev) => {
+              ev.stopPropagation();
+              cancelRename();
+            });
+
+            renameSubmitBtn = document.createElement('button');
+            renameSubmitBtn.className = 'px-3 py-1 rounded-md bg-emerald-600 hover:bg-emerald-700 text-sm';
+            renameSubmitBtn.textContent = 'Save';
+            renameSubmitBtn.addEventListener('click', (ev) => {
+              ev.stopPropagation();
+              submitRename();
+            });
+
+            // Append buttons to the controls
+            editControlsWrap.appendChild(renameCancelBtn);
+            editControlsWrap.appendChild(renameSubmitBtn);
+
+            renameInput = input;
+
+            function cancelRename(){
+              if(!renaming) return;
+              renaming = false;
+              // restore title
+              title.innerHTML = `<span class="font-medium">${escapeHtml(g.name)}</span>`;
+              // remove cancel/save buttons
+              if(renameCancelBtn) { renameCancelBtn.remove(); renameCancelBtn = null; }
+              if(renameSubmitBtn) { renameSubmitBtn.remove(); renameSubmitBtn = null; }
+              renameInput = null;
+              // restore buttons
+              currentRenameBtn = createRenameButton();
+              currentEditBtn = createEditButton();
+              editControlsWrap.appendChild(currentRenameBtn);
+              editControlsWrap.appendChild(currentEditBtn);
+            }
+
+            function submitRename(){
+              if(!renaming) return;
+              const raw = String((renameInput && renameInput.value) || '');
+              const newName = raw.trim();
+              const old = String(oldName || '').trim();
+              if(!newName){
+                showToast('Please enter a name.', { type: 'warn' });
+                renameInput.focus();
+                return;
+              }
+              // if unchanged, just cancel rename
+              if(newName === old) {
+                cancelRename();
+                return;
+              }
+              // validate uniqueness case-insensitively (exclude current name)
+              if(isNameTaken(newName, old)){
+                showToast('A game with that name already exists.', { type: 'error' });
+                renameInput.focus();
+                return;
+              }
+
+              // perform rename: update customGames entry
+              try {
+                const idx = customGames.findIndex(c => c.name === old);
+                if(idx !== -1){
+                  customGames[idx].name = newName;
+                } else {
+                  // fallback: try to find by comparing case-insensitive
+                  const idx2 = customGames.findIndex(c => String(c.name || '').trim().toLowerCase() === old.trim().toLowerCase());
+                  if(idx2 !== -1) customGames[idx2].name = newName;
+                }
+                // transfer lastPlayed entry if exists
+                try {
+                  if(typeof lastPlayed[old] !== 'undefined'){
+                    lastPlayed[newName] = lastPlayed[old];
+                    delete lastPlayed[old];
+                    saveLastPlayed();
+                  }
+                } catch(e){ console.warn('Failed to transfer lastPlayed on rename', e); }
+
+                // persist
+                saveCustomGames();
+                renaming = false;
+
+                // show success and re-render so UI updates cleanly
+                showToast(`Renamed "${old}" to "${newName}".`, { type: 'success' });
+                renderGames(searchInput.value);
+              } catch (err) {
+                console.warn('Rename failed', err);
+                showToast('Rename failed.', { type: 'error' });
+                cancelRename();
+              }
+            }
+          } // end startRenaming
+
+        } // end if !g.built
 
         card.appendChild(contentWrap);
 
@@ -2146,7 +2319,7 @@
 <!--
 
   Created by Huaze
-  Version: Beta 1.6.3
+  Version: Beta 1.7
   For more info, see: https://github.com/Huaze2/Games
 
 -->
