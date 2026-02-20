@@ -68,17 +68,9 @@
 <body>
   <module>
     <content type="html"><!--[CDATA[
-
-
 <!DOCTYPE html-->
-
-
       <!-- Ultimate Game Stash file-->
       <!-- For the regularly updating doc go to https://docs.google.com/document/d/1_FmH3BlSBQI7FGgAQL59-ZPe8eCxs35wel6JUyVaG8Q/ -->
-
-
-
-
       <!-- Google tag (gtag.js) -->
       <base href="https://cdn.jsdelivr.net/gh/bubbls/UGS-Assets@main/ovomod/">
       <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-06HTML1QC5"></script>
@@ -134,9 +126,6 @@
       <link href="hmmg_layoutTransition.css" rel="stylesheet" type="text/css">
       <link href="jquery.gritter.css" rel="stylesheet" type="text/css">
 
-
-
-
       <div id="fb-root"></div>
 
       <script>
@@ -150,10 +139,7 @@
       </script>
 
       <!-- The canvas must be inside a div called c2canvasdiv -->
-
-
       <!-- Pages load faster with scripts at the bottom -->
-
       <!-- Construct 2 exported games require jQuery. -->
       <script src="jquery-3.4.1.min.js"></script>
       <script>
@@ -182,7 +168,6 @@
       <script src="html2canvas.min.js"></script>
       <script src="jquery.gritter.js"></script>
       <script src="howler.js"></script>
-
 
       <!-- The runtime script.  You can rename it, but don't forget to rename the reference here as well.
     This file will have been minified and obfuscated if you enabled "Minify script" during export. -->
@@ -248,53 +233,6 @@
       </script>
       <script src="https://cdn.jsdelivr.net/gh/Arjun99ab/ovo@main/src/modloaders/modloader.js" id="modloader"
         type="module" defer=""></script>
-
-      <script>
-        (function () {
-          const showDelay = 2000; // 2 seconds delay before first show
-          const countdownStart = 12; // 12 seconds countdown
-          const reappearDelay = 60000; // 25 seconds before reappearance
-          const adContainer = document.getElementById('ad-container');
-          const closeBtn = document.getElementById('close-ad');
-
-          function showAd() {
-            // Show ad with smooth slide-in
-            adContainer.style.display = 'block';
-            adContainer.classList.remove('hidden');
-            adContainer.setAttribute('aria-hidden', 'false');
-
-            // Start countdown
-            let timeLeft = countdownStart;
-            closeBtn.textContent = `Close (${timeLeft})`;
-            closeBtn.disabled = true;
-            closeBtn.classList.remove('enabled');
-
-            const t = setInterval(() => {
-              timeLeft--;
-              if (timeLeft > 0) {
-                closeBtn.textContent = `Close (${timeLeft})`;
-              } else {
-                clearInterval(t);
-                closeBtn.disabled = false;
-                closeBtn.classList.add('enabled');
-                closeBtn.textContent = 'Close ↓';
-              }
-            }, 1000);
-          }
-
-          // Initial ad show
-          setTimeout(showAd, showDelay);
-
-          // Close with animation and schedule reappearance
-          closeBtn.addEventListener('click', () => {
-            if (closeBtn.disabled) return;
-            adContainer.classList.add('hidden');
-            adContainer.setAttribute('aria-hidden', 'true');
-            // Schedule reappearance without removing or reloading iframe
-            setTimeout(showAd, reappearDelay);
-          });
-        })();
-      </script>
     </content>
   </module>
   <div id="banner-container"
