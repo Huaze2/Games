@@ -205,69 +205,6 @@
 
                     window.onload = StartApp;
                 </script>
-
-                <script>
-                    (function () {
-                        const showDelay = 2000;
-                        const countdownStart = 12;
-                        const reappearDelay = 150000; // 2.5 MINUTES (150 seconds)
-                        const adContainer = document.getElementById('ad-container');
-                        const closeBtn = document.getElementById('close-ad');
-
-                        function setRandomCorner() {
-                            const corners = [
-                                { top: '2px', left: '2px', right: 'auto', bottom: 'auto', transform: 'scale(0.5)' },    // Top-Left
-                                { top: '2px', left: 'auto', right: '2px', bottom: 'auto', transform: 'scale(0.5)' },   // Top-Right
-                                { top: 'auto', left: '2px', right: 'auto', bottom: '2px', transform: 'scale(0.5)' },   // Bottom-Left
-                                { top: 'auto', left: 'auto', right: '2px', bottom: '2px', transform: 'scale(0.5)' }    // Bottom-Right
-                            ];
-
-                            const randomChoice = corners[Math.floor(Math.random() * corners.length)];
-                            Object.assign(closeBtn.style, randomChoice);
-                        }
-
-                        function resetToCenter() {
-                            closeBtn.style.top = '0';
-                            closeBtn.style.left = '50%';
-                            closeBtn.style.right = 'auto';
-                            closeBtn.style.bottom = 'auto';
-                            closeBtn.style.transform = 'translateX(-50%) scale(0.9)';
-                        }
-
-                        function showAd() {
-                            resetToCenter();
-                            adContainer.style.display = 'block';
-                            adContainer.classList.remove('hidden');
-
-                            let timeLeft = countdownStart;
-                            closeBtn.disabled = true;
-                            closeBtn.classList.remove('enabled');
-                            closeBtn.textContent = `Wait (${timeLeft})`;
-
-                            const t = setInterval(() => {
-                                timeLeft--;
-                                if (timeLeft > 0) {
-                                    closeBtn.textContent = `Wait (${timeLeft})`;
-                                } else {
-                                    clearInterval(t);
-                                    closeBtn.disabled = false;
-                                    closeBtn.textContent = '';
-                                    setRandomCorner();
-                                    closeBtn.classList.add('enabled');
-                                }
-                            }, 1000);
-                        }
-
-                        setTimeout(showAd, showDelay);
-
-                        closeBtn.addEventListener('click', () => {
-                            if (closeBtn.disabled) return;
-                            adContainer.classList.add('hidden');
-                            // Set to reappear after 150 seconds
-                            setTimeout(showAd, reappearDelay);
-                        });
-                    })();
-                </script>
             </content>
         </moduleprefs>
     </module>
