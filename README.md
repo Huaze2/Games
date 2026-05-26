@@ -55,5 +55,11 @@ All changes in Beta 1.6 and newer will be documented in this file.
 ### Fixed
 - having more than one game with the same name (case-sensitive) will cause the 'last played' to be the same and deleting one of them clears last played for that game
 
-# Current bug (help)
-- game cards shrinks after expanding and collapsing
+## [1.0] - 26/5/2026
+
+### Added
+- favouriting games and filter favourites only
+
+### Changed
+- UI overhaul (changed animations, text, buttons, etc.)
+- the subtitle (below the title 'Games' in games menu) is changed to show the number of main, custom, and total games
