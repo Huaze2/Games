@@ -1,12 +1,8 @@
-# Unblocked Games
-
-## $${\color{lightgreen}The \space full \space version \space will \space be \space released \space on \space 26 \space May \space 2026}$$ (I'll try not to delay)
-
-***(THIS PROJECT IS STILL IN BETA, NO GAMES ARE ADDED YET. TO GET UNRELEASED GAMES CODE, EITHER COPY/PASTE CODE OR IMPORT IT)***
+# Unblocked Games Launcher
 
 **Made by Huaze**
 
-**Version: *Beta 1.7***
+**Version: *1.0***
 
 Link: **https://onecompiler.com/html/449w2kdhz**
 
