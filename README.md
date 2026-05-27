@@ -2,9 +2,9 @@
 
 ***(Games will be added in the next update which is in the 1st of June. As of now, there are no games, they are just placeholders. You can play unreleased games by downloading the export.)***
 
-**Made by Huaze**
+**Made by Huaze $${\color{red}Do \space not \space share \space with \space others}$$**
 
-**Version: *1.0***
+**Version: 1.0**
 
 Link: **https://onecompiler.com/html/449w2kdhz**
 
