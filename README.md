@@ -1,14 +1,16 @@
 # Unblocked Games Launcher
 
+***(Games will be added in the next update which is in the 1st of June. As of now, there are no games, they are just placeholders. You can play unreleased games by downloading the export.)***
+
 **Made by Huaze**
 
 **Version: *1.0***
 
 Link: **https://onecompiler.com/html/449w2kdhz**
 
-### ⚠️If you are using the link⚠️
+### ⚠️ If you are using the link
 
-The export button does not work in OneCompiler. Clicking it will fallback and open a new tab with the JSON code (basically the export code). To make an export file, open the app ***Text*** and paste the JSON code from the fallback. Save the file with an extension '.json' (e.g. ***export.json***). (***This guide is for PLDs***)
+The export button does not work in OneCompiler. Clicking it will fallback and open a new tab with the JSON code (basically the export code). To make an export file, use a JSON editor website and paste the export code and then download the file. (***This guide is for PLDs***)
 
 ## Bugs and Suggestions
 
